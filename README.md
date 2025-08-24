@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+AI Website Assistant – MVP
 
-## Getting Started
+Stack: Next.js App Router (TS), Tailwind, next-intl (fi/en), Prisma (SQLite), OpenAI, Resend (optional).
 
-First, run the development server:
+Quick start
+
+1) Requirements: Node 20+
+
+2) Install:
+
+```bash
+npm ci
+```
+
+3) Configure env (`.env`):
+
+```bash
+DATABASE_URL="file:./dev.db"
+OPENAI_API_KEY= # optional; falls back to stub
+RESEND_API_KEY= # optional
+BASIC_AUTH_USER= # for /admin
+BASIC_AUTH_PASS=
+PAGESPEED_API_KEY= # optional
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
+
+4) DB migrate:
+
+```bash
+npx prisma migrate dev --name init
+```
+
+5) Dev:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build & run:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start -p 3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Docker:
 
-## Learn More
+```bash
+docker build -t ai-website-assistant .
+docker run -p 3000:3000 --env-file .env ai-website-assistant
+```
 
-To learn more about Next.js, take a look at the following resources:
+Endpoints
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- POST `/api/analyze` { url, email?, lang: 'fi'|'en' } → { scanId }
+- GET `/api/report?id=...` → Scan JSON
+- Pages: `/`, `/[locale]`, `/[locale]/report/[id]`, `/[locale]/admin`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Notes
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- If OPENAI_API_KEY is not set, AI summary uses a concise stub.
+- Admin requires BASIC_AUTH_USER/BASIC_AUTH_PASS; middleware guards `/admin`.

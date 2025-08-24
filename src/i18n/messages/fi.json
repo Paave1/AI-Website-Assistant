@@ -1,0 +1,24 @@
+{
+  "landing": {
+    "title": "Tarkista verkkosivusi 60 sekunnissa",
+    "subtitle": "AI-avustaja arvioi sivusi ja antaa selkeät kehitysehdotukset.",
+    "analyze": "Analysoi",
+    "urlPlaceholder": "Syötä verkkosivun URL",
+    "emailPlaceholder": "Sähköposti (valinnainen)",
+    "langToggle": "Kieli",
+    "fi": "Suomi",
+    "en": "Englanti"
+  },
+  "report": {
+    "tech": "Tekniikka",
+    "content": "Sisältö",
+    "gdpr": "GDPR & Luottamus",
+    "summary": "AI-yhteenveto",
+    "downloadPdf": "Lataa PDF",
+    "newAnalysis": "Uusi analyysi",
+    "score": "Pisteet"
+  }
+}
+
+
+

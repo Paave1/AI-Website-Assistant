@@ -1,0 +1,24 @@
+{
+  "landing": {
+    "title": "Check your website in 60 seconds",
+    "subtitle": "AI assistant reviews your site and gives clear steps to improve.",
+    "analyze": "Analyze",
+    "urlPlaceholder": "Enter website URL",
+    "emailPlaceholder": "Email (optional)",
+    "langToggle": "Language",
+    "fi": "Finnish",
+    "en": "English"
+  },
+  "report": {
+    "tech": "Tech",
+    "content": "Content",
+    "gdpr": "GDPR & Trust",
+    "summary": "AI Summary",
+    "downloadPdf": "Download PDF",
+    "newAnalysis": "New analysis",
+    "score": "Score"
+  }
+}
+
+
+
