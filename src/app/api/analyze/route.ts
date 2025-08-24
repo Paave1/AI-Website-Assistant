@@ -3,7 +3,7 @@ import {NextRequest, NextResponse} from 'next/server';
 import {z} from 'zod';
 import {load} from 'cheerio';
 import OpenAI from 'openai';
-import {PrismaClient, Prisma} from '@/generated/prisma';
+import {PrismaClient, Prisma} from '@prisma/client';
 
 const prisma = new PrismaClient();
 

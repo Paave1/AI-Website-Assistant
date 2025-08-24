@@ -1,4 +1,4 @@
-import {PrismaClient} from '@/generated/prisma';
+import {PrismaClient} from '@prisma/client';
 import Link from 'next/link';
 import PdfButton from '@/components/PdfButton';
 
